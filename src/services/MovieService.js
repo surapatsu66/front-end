@@ -15,7 +15,11 @@ export async function getAllMovies() {
 export async function createMovie(data) {
     const response = await fetch(`https://api.se-rmutl.net/api/movie/insert`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+,
         body: JSON.stringify({...data})
       })
     return await response.json();
